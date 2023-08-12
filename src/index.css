@@ -64,7 +64,7 @@ body {
   background: var(--clr-grey-10);
   color: var(--clr-grey-1);
   line-height: 1.5;
-  font-size: 0.875rem;
+  font-size: 1rem;
 }
 
 h3 {
@@ -85,10 +85,6 @@ p {
   h3 {
     font-size: 1.75rem;
     line-height: 1;
-  }
-
-  body {
-    font-size: 1rem;
   }
 }
 
@@ -138,7 +134,7 @@ button {
 .btn {
   text-transform: uppercase;
   background: var(--clr-primary-5);
-  color: var(--clr-primary-1);
+  color: var(--clr-white);
   padding: 0.375rem 0.75rem;
   letter-spacing: 1px;
   transition: var(--transition);
@@ -150,9 +146,8 @@ button {
 }
 
 .btn:hover {
-  color: var(--clr-primary-5);
-  background: var(--clr-primary-8);
-  border-color: var(--clr-primary-8);
+  background-color: var(--clr-primary-3);
+  border-color: var(--clr-primary-3);
 }
 
 .lorem-text {

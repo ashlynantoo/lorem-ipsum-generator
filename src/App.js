@@ -1,26 +1,27 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import data from "./data";
 
-function App() {
+const App = () => {
   const [count, setCount] = useState(0);
   const [text, setText] = useState([]);
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    // for (let i = 0; i < count; i++) {
-    //   setText((prevValue) => {
-    //     return [...prevValue, data[i]];
-    //   });
-    // }
-    let num = count;
+    let num = count,
+      quotient = 0,
+      content = [];
     if (count < 1) {
       num = 1;
     }
-    if (count > 9) {
-      num = 9;
+    if (count > data.length) {
+      quotient = Math.floor(count / data.length);
+      num = count % data.length;
+      for (let i = 0; i < quotient; i++) {
+        content = [...content, ...data];
+      }
     }
-    setText(data.slice(0, num));
-  }
+    setText([...content, ...data.slice(0, num)]);
+  };
 
   return (
     <section className="section-center">
@@ -47,6 +48,6 @@ function App() {
       </article>
     </section>
   );
-}
+};
 
 export default App;
