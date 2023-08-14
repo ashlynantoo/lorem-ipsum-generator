@@ -1,8 +1,9 @@
 import { useState } from "react";
+import { nanoid } from "nanoid";
 import data from "./data";
 
 const App = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [text, setText] = useState([]);
 
   const handleSubmit = (event) => {
@@ -10,9 +11,6 @@ const App = () => {
     let num = count,
       quotient = 0,
       content = [];
-    if (count < 1) {
-      num = 1;
-    }
     if (count > data.length) {
       quotient = Math.floor(count / data.length);
       num = count % data.length;
@@ -32,6 +30,8 @@ const App = () => {
           type="number"
           name="count"
           id="count"
+          min="1"
+          max="50"
           value={count}
           onChange={(event) => {
             setCount(event.target.value);
@@ -42,8 +42,8 @@ const App = () => {
         </button>
       </form>
       <article className="lorem-text">
-        {text.map((para, index) => {
-          return <p key={index}>{para}</p>;
+        {text.map((para) => {
+          return <p key={nanoid()}>{para}</p>;
         })}
       </article>
     </section>
